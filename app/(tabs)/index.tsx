@@ -1,9 +1,14 @@
 import { Link } from "expo-router";
-import { Text, View } from "react-native";
+import { styled } from "nativewind";
+import { Text } from "react-native";
+import { SafeAreaView as RNSafeAreaView } from "react-native-safe-area-context";
+
+// The only reason why we have to do this is because the safeareaview from the "react-native-safe-area-context" is a third party component and nativewind needs the styled wrapper to enable classname support.
+const SafeAreaView = styled(RNSafeAreaView);
 
 export default function App() {
   return (
-    <View className="flex-1 items-center justify-center bg-background">
+    <SafeAreaView className="flex-1 bg-background p-5">
       <Text className="text-xl font-bold text-success">
         Welcome to Nativewind!
       </Text>
@@ -39,6 +44,6 @@ export default function App() {
       >
         Claude Details
       </Link>
-    </View>
+    </SafeAreaView>
   );
 }
